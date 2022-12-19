@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Maxler Player</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_text">Search songs, playlists, and artists</string>
+    <string name="now_playing">NOW PLAYING</string>
+</resources>
