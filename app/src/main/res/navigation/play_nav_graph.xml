@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/play_graph"
+    app:startDestination="@id/songsFragment">
+    <!-- child graph -->
+        <fragment
+            android:id="@+id/songsFragment"
+            android:name="com.play.maxler.presentation.screens.songs.SongsFragment"
+            android:label="SongsFragment"
+            tools:layout="@layout/fragment_songs">
+            <action
+                android:id="@+id/action_songsFragment_to_playFragment"
+                app:destination="@id/playFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/playFragment"
+            android:name="com.play.maxler.presentation.screens.play.PlayFragment"
+            android:label="PlayFragment"
+            tools:layout="@layout/fragment_play">
+            <deepLink
+                android:id="@+id/deepLink"
+                app:uri="myApp://myFragment_play" />
+        </fragment>
+
+</navigation>

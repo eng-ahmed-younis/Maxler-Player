@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".presentation.screens.recent.RecentFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/screen_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/margin_x_large"
+            app:fontFamily="@font/poppins_semi_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Recent"
+            android:text="@string/recent"
+            android:textColor="@color/playing_items_color"
+            android:layout_marginTop="@dimen/margin_medium"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/recent_navigate_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="@id/screen_title"
+            app:layout_constraintBottom_toBottomOf="@id/screen_title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/margin_large"
+            android:tint="@color/playing_items_color"
+            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/screen_title"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recent_shuffle_playback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_X_small"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@drawable/shuffle_playback_background"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/recent_play_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:background="@drawable/play_shuffle_playback"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_play_medium"
+                    app:tint="@color/shuffle_playback_color"
+                    app:layout_constraintEnd_toStartOf="@id/shuffle_playback_text"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/shuffle_playback_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shuffle_playback"
+                    android:textColor="@color/black_white_color"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    app:fontFamily="@font/poppins_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/recent_play_img"
+                    app:layout_constraintStart_toEndOf="@id/recent_play_img"
+                    app:layout_constraintTop_toTopOf="@id/recent_play_img"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/delete_recent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_delete"
+                app:tint="@color/playing_items_color_extra" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

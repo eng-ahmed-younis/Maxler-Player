@@ -12,26 +12,27 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:windowLightStatusBar">true</item>
-        <!-- Customize your theme here. -->
 
+        <!-- Customize your theme here. -->
 
         <!-- app background -->
         <item name="android:windowBackground">@color/white</item>
 
+    </style>
 
 
-
-
-
-
-
+    <!-- full screen activity -->
+    <style name="splash_theme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 
     <style name="seekBar" parent="Widget.AppCompat.SeekBar">
-        <item name="colorAccent">@color/playing_items_color</item>
+        <item name="colorAccent">@color/color_primary</item>
     </style>
-
 
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -50,5 +51,39 @@
         <item name="android:focusable">false</item>
     </style>
 
+
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Theme.MaxlerPlayer.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MaxlerPlayer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MaxlerPlayer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+
+
+    <style name="PlayFragmentAnimation">
+        <item name="android:windowEnterAnimation">@anim/move_left</item>
+        <item name="android:windowExitAnimation">@anim/move_right</item>
+    </style>
+
+
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:inputType">text</item>
+    </style>
 
 </resources>

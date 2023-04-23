@@ -4,4 +4,44 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_text">Search songs, playlists, and artists</string>
     <string name="now_playing">NOW PLAYING</string>
+
+
+    <!--OnBoarding Slides-->
+    <string name="back">Back</string>
+    <string name="go_it">Go It</string>
+    <string name="board_title_1">Music is life</string>
+    <string name="board_description_1">Balances your emotions and make you to feel happy.</string>
+    <string name="board_title_2">Enjoy Music</string>
+    <string name="board_description_2">Massive music for you to listen to enjoy each moment of music.</string>
+    <string name="board_title_3">Without Ads</string>
+    <string name="board_description_3">Enjoy your music without any ad and keep listening it.</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="app_icon">app_icon</string>
+    <string name="get_started">get_started</string>
+    <string name="goToAppInfo">Go to App Info</string>
+    <string name="read_zstorage_permission_info">read storage permission info</string>
+    <string name="permission_request_text">Maxler Player App needs permission to access device Media
+        to provide required services. Please allow the permission</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="permission_request">Permission Request</string>
+    <string name="on_boarding_image">on_boarding_image</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="shuffle_playback">Shuffle Playback</string>
+
+
+    <!-- screens -->
+    <string name="favorite">Favorite</string>
+    <string name="recent">Recent</string>
+    <string name="songs">Songs</string>
+    <string name="artists">Artists</string>
+    <string name="albums">Albums</string>
+    <string name="folders">Folders</string>
+    <string name="all_songs">All Songs</string>
+    <string name="look_and_feel">Look and Feel</string>
+    <string name="about">About</string>
+    <string name="setting">Setting</string>
+    <string name="discover">Discover</string>
+
+
 </resources>

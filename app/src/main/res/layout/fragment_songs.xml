@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.screens.songs.SongsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/songs_top_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@android:color/transparent"
+            android:background="@android:color/transparent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/play_songs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_x_small"
+                android:background="@drawable/play_in_songs_background"
+                android:src="@drawable/ic_play_medium"
+                android:tint="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_margin="@dimen/margin_medium"
+                />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/shuffle_playback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/shuffle_playback"
+                android:textColor="@color/playing_items_color"
+                android:textStyle="bold"
+                app:fontFamily="@font/poppins_semi_bold"
+                app:layout_constraintTop_toTopOf="@id/play_songs"
+                app:layout_constraintBottom_toBottomOf="@id/play_songs"
+                app:layout_constraintStart_toEndOf="@id/play_songs"
+                android:layout_marginStart="@dimen/margin_medium"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/playlist_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:backgroundTint="@android:color/transparent"
+                android:src="@drawable/playlist_add"
+                android:tint="@color/playing_items_color"
+                android:scaleType="centerCrop"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/sort_songs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_sort"
+                android:tint="@color/playing_items_color"
+                app:layout_constraintBottom_toBottomOf="@id/playlist_add"
+                app:layout_constraintEnd_toStartOf="@id/playlist_add"
+                app:layout_constraintTop_toTopOf="@id/playlist_add"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/songRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="4dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/songs_top_section"
+            app:layout_constraintVertical_bias="0.0"
+            tools:itemCount="40"
+            tools:listitem="@layout/item_song" />
+
+
+      <!--  <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:lottie_rawRes="@raw/looding_lottie"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/songs_top_section"
+            />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="all_songs"
+            type="com.play.maxler.domain.models.Song" />
+
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:backgroundTint="@android:color/transparent"
+        app:cardElevation="0dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/song_image"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="@dimen/margin_small"
+                tools:src="@tools:sample/avatars" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/song_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="ahmed ali"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:textColor="@color/playing_items_color_extra"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/song_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="android developer" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/song_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="55:33"
+                android:textAlignment="center"
+                android:textColor="@color/playing_items_color_extra"
+                android:textSize="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/song_image"
+                app:layout_constraintTop_toBottomOf="@id/song_title" />
+
+
+            <View
+                android:id="@+id/dash"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:background="@color/song_color"
+                app:layout_constraintBottom_toBottomOf="@id/song_duration"
+                app:layout_constraintStart_toEndOf="@id/song_duration"
+                app:layout_constraintTop_toTopOf="@id/song_duration" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/artist_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="artist Name"
+                android:textAlignment="textStart"
+                android:textColor="@color/playing_items_color_extra"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="@id/dash"
+                app:layout_constraintStart_toEndOf="@id/dash"
+                app:layout_constraintTop_toTopOf="@id/dash"
+                tools:text="roaa" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/songs_menu"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@null"
+                android:src="@drawable/ic_menu"
+                android:tint="@color/playing_items_color_extra"
+                app:layout_constraintBottom_toBottomOf="@id/song_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/song_image"
+
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

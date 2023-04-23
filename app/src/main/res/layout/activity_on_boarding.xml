@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/onBoardingRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/on_boarding_scene"
+        tools:context=".presentation.screens.onBoarding.OnBoardingActivity"
+        tools:showPaths="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/skipButton"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/skip"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:textColor="@color/skip_color"
+            android:textSize="@dimen/text_size_medium"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_board"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:elevation="12dp"
+            android:scaleType="centerInside"
+            android:layout_marginStart="@dimen/margin_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/skipButton"
+            app:layout_constraintBottom_toBottomOf="@id/skipButton"
+            app:srcCompat="@drawable/ic_back"
+            android:tint="@color/back_color"
+            />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/fab_next"
+            app:layout_constraintTop_toBottomOf="@+id/skipButton"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <LinearLayout
+            android:id="@+id/indicatorsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/margin_x_large"
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/fab_next"
+            android:layout_marginBottom="@dimen/margin_x_large"
+            android:elevation="16dp"
+            android:backgroundTint="@android:color/transparent"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_large"
+            android:backgroundTint="@color/next_color"
+            android:background="@color/next_color"
+            android:clickable="true"
+            app:tint="@color/next_icon_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:rippleColor="@color/next_color"
+            app:srcCompat="@drawable/ic_navigate_next"
+            android:contentDescription="fab"
+            android:focusable="true" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

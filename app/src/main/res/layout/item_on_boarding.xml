@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="boards"
+            type="com.play.maxler.presentation.screens.onBoarding.Board" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/onBoardingImg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_marginStart="@dimen/margin_large"
+            android:contentDescription="@string/on_boarding_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/onBoardingTitle"
+            android:layout_marginBottom="@dimen/margin_xx_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:boardImage="@{boards}"
+            tools:src="@drawable/on_boarding3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/onBoardingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_x_large"
+            android:fontFamily="@font/poppins_extra_bold"
+            android:paddingEnd="@dimen/padding_x_large"
+            android:paddingStart="@dimen/padding_x_large"
+            android:gravity="center"
+            android:board_title="@{boards}"
+            android:textColor="@color/on_board_title"
+            android:textSize="@dimen/text_size_xxx_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/onBoardingDescription"
+            tools:text="Best Music App" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/onBoardingDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_x_large"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingEnd="@dimen/padding_medium"
+            android:paddingStart="@dimen/padding_medium"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:board_description="@{boards}"
+            android:textColor="@color/on_board_desc"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Easily add your create your trip, and let people know where you’re heading." />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

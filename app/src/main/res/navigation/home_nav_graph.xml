@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_graph"
+    app:startDestination="@id/recentFragment">
+
+<!--
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.play.maxler.presentation.screens.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        &lt;!&ndash;   <action
+               android:id="@+id/action_homeFragment_to_playFragment"
+               app:destination="@id/playFragment"
+               app:enterAnim="@anim/slide_up"
+               app:exitAnim="@anim/slide_down"
+               app:popExitAnim="@anim/slide_down" />&ndash;&gt;
+
+        <action
+            android:id="@+id/action_homeFragment_to_favorite"
+            app:destination="@id/favoriteFragment"
+            app:enterAnim="@anim/move_left"
+            app:exitAnim="@anim/soft_move_left"
+            app:popEnterAnim="@anim/soft_move_right"
+            app:popExitAnim="@anim/move_right"
+            />
+
+        <action
+            android:id="@+id/action_homeFragment_to_playListFragment"
+            app:destination="@id/playListFragment"
+            app:enterAnim="@anim/move_left"
+            app:exitAnim="@anim/soft_move_left"
+            app:popEnterAnim="@anim/soft_move_right"
+            app:popExitAnim="@anim/move_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_recentFragment"
+            app:destination="@id/recentFragment"
+            app:enterAnim="@anim/move_left"
+            app:exitAnim="@anim/soft_move_left"
+            app:popEnterAnim="@anim/soft_move_right"
+            app:popExitAnim="@anim/move_right"
+            />
+
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment"
+            app:enterAnim="@anim/move_left"
+            app:exitAnim="@anim/soft_move_left"
+            app:popEnterAnim="@anim/soft_move_right"
+            app:popExitAnim="@anim/move_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/move_left"
+            app:exitAnim="@anim/soft_move_left"
+            app:popEnterAnim="@anim/soft_move_right"
+            app:popExitAnim="@anim/move_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_play_nav_graph"
+            app:destination="@id/play_graph" />
+        &lt;!&ndash;  <action
+              android:id="@+id/action_homeFragment_to_play_graph"
+              app:destination="@id/play_graph"
+              app:enterAnim="@anim/slide_up"
+              app:exitAnim="@anim/slide_down"
+              app:popExitAnim="@anim/slide_down"
+              />&ndash;&gt;
+    </fragment>
+-->
+
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.play.maxler.presentation.album.AlbumFragment"
+        android:label="fragment_album"
+        tools:layout="@layout/fragment_album" />
+    <fragment
+        android:id="@+id/artistsFragment"
+        android:name="com.play.maxler.presentation.artists.ArtistsFragment"
+        android:label="fragment_artists"
+        tools:layout="@layout/fragment_artists" />
+
+
+    <fragment
+        android:id="@+id/playListFragment"
+        android:name="com.play.maxler.presentation.screens.playlist.PlayListFragment"
+        android:label="Playlists"
+        tools:layout="@layout/fragment_play_list" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.play.maxler.presentation.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+
+
+
+    <fragment
+        android:id="@+id/recentFragment"
+        android:name="com.play.maxler.presentation.screens.recent.RecentFragment"
+        android:label="Recent"
+        tools:layout="@layout/fragment_recent"
+        />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.play.maxler.presentation.screens.favorite.FavoriteFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorite"/>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.play.maxler.presentation.screens.secrch.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/foldersFragment"
+        android:name="com.play.maxler.presentation.screens.folder.FoldersFragment"
+        android:label="fragment_folders"
+        tools:layout="@layout/fragment_folders" />
+
+
+</navigation>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/now_playing_screen_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@color/window_background"
+        android:transitionName="last_playing_transition">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textNowPlaying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/now_playing"
+            android:textAllCaps="true"
+            android:textColor="@color/playing_items_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image_album"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/muslim"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textNowPlaying"
+            app:riv_corner_radius="20dp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textColor="@color/playing_items_color"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/image_album"
+            tools:text="شرح الأصول الثلاثة" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#5B377C"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/textTitle"
+            tools:text=" artists" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/navigate_up"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:rotation="-90"
+            android:tint="@color/playing_items_color"
+            app:layout_constraintBottom_toBottomOf="@id/textNowPlaying"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textNowPlaying"
+            app:srcCompat="@drawable/ic_up" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/menu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:tint="@color/playing_items_color"
+            app:layout_constraintBottom_toBottomOf="@id/textNowPlaying"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textNowPlaying"
+            app:srcCompat="@drawable/ic_menu" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/play_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/play_button_background"
+                android:padding="12dp"
+                android:tint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/ic_play" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/play_previous"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="15sp"
+                android:background="@android:color/transparent"
+                android:padding="4dp"
+                android:tint="@color/playing_items_color"
+                app:layout_constraintBottom_toBottomOf="@+id/play_button"
+                app:layout_constraintEnd_toStartOf="@+id/play_button"
+                app:layout_constraintTop_toTopOf="@+id/play_button"
+                app:srcCompat="@drawable/ic_skip_previous"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/play_next"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="15sp"
+                android:background="@android:color/transparent"
+                android:padding="4dp"
+                android:tint="@color/playing_items_color"
+                app:layout_constraintBottom_toBottomOf="@+id/play_button"
+                app:layout_constraintStart_toEndOf="@+id/play_button"
+                app:layout_constraintTop_toTopOf="@+id/play_button"
+                app:srcCompat="@drawable/ic_skip_next" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/shuffle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:background="@null"
+                android:padding="4dp"
+                android:tint="@color/playing_items_color"
+                app:layout_constraintBottom_toBottomOf="@+id/play_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/play_button"
+                app:srcCompat="@drawable/ic_shuffle"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/repeat"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@null"
+                android:tint="@color/playing_items_color"
+                app:layout_constraintBottom_toBottomOf="@id/play_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/play_button"
+                app:srcCompat="@drawable/ic_repeat" />
+
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/play_seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:progress="30"
+                android:theme="@style/seekBar"
+                app:layout_constraintBottom_toTopOf="@id/play_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/current_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="4dp"
+                android:text="10.50"
+                android:textColor="@color/playing_items_color"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/play_seekBar"
+                app:layout_constraintStart_toStartOf="@id/play_seekBar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/total_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="4dp"
+                android:text="12:00"
+                android:textColor="@color/playing_items_color"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/play_seekBar"
+                app:layout_constraintEnd_toEndOf="@id/play_seekBar"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
