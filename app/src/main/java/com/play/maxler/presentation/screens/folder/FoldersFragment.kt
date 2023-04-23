@@ -12,11 +12,7 @@ import com.play.maxler.R
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FoldersFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class FoldersFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
