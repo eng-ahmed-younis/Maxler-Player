@@ -8,16 +8,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AlertDialog
+import com.play.maxler.common.data.Constants
 import com.play.maxler.databinding.ActivityPermissionBinding
 import com.play.maxler.presentation.screens.main.MainActivity
-import com.play.maxler.utils.Constants
-import com.play.maxler.utils.Utils
+import com.play.maxler.common.utils.Utils
 import com.play.maxler.utils.launchScreen
 
 class PermissionActivity : AppCompatActivity() {
 
     private lateinit var permissionBinding: ActivityPermissionBinding
-    private val  REQUEST_ID_CODE = 101
+    private val  REQUEST_ID_CODE: Int = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

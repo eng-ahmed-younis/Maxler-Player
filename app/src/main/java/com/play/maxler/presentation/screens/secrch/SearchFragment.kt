@@ -2,14 +2,11 @@ package com.play.maxler.presentation.screens.secrch
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
-import androidx.navigation.fragment.findNavController
 import com.play.maxler.R
-import com.play.maxler.databinding.FragmentHomeBinding
 import com.play.maxler.databinding.FragmentSearchBinding
-import com.play.maxler.utils.base.BaseFragment
+import com.play.maxler.common.view.base.BaseFragment
 
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate){

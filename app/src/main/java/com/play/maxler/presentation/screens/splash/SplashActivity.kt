@@ -3,19 +3,19 @@ package com.play.maxler.presentation.screens.splash
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.play.maxler.data.local.preferences.PreferencesUtils
+import com.play.maxler.common.data.Constants
+import com.play.maxler.common.data.Constants.HAS_SEEN_ON_BOARDING
+import com.play.maxler.data.local.preferences.SharedPreferencesStorage
 import com.play.maxler.presentation.screens.main.MainActivity
 import com.play.maxler.presentation.screens.onBoarding.OnBoardingActivity
 import com.play.maxler.presentation.screens.permission.PermissionActivity
-import com.play.maxler.utils.Constants
-import com.play.maxler.utils.Constants.HAS_SEEN_ON_BOARDING
-import com.play.maxler.utils.Utils
+import com.play.maxler.common.utils.Utils
 import com.play.maxler.utils.launchScreen
 
 class SplashActivity : AppCompatActivity() {
 
     private val preferences by lazy {
-        PreferencesUtils(this).sharedPreferences
+        SharedPreferencesStorage(this).sharedPreferences
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

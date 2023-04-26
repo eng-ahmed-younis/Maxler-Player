@@ -7,14 +7,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.play.maxler.R
 import com.play.maxler.databinding.FragmentPlayBinding
-import com.play.maxler.presentation.screens.songs.AudioViewModel
-import com.play.maxler.utils.base.BaseFragment
+import com.play.maxler.presentation.screens.songs.PlaybackViewModel
+import com.play.maxler.common.view.base.BaseFragment
 import com.play.maxler.utils.bindPlayMenu
 
 
 class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::inflate) {
 
-    private val viewmodel : AudioViewModel by navGraphViewModels(R.id.play_graph)
+    private val viewmodel : PlaybackViewModel by navGraphViewModels(R.id.play_graph)
 
  /*   override fun onCreateView(
         inflater: LayoutInflater,

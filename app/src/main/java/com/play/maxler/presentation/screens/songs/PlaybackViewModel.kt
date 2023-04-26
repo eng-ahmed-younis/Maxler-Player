@@ -1,14 +1,15 @@
 package com.play.maxler.presentation.screens.songs
 
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.play.maxler.common.data.Constants
 import kotlinx.coroutines.flow.*
 
-/*class SongsViewModel @Inject constructor(
-    private val getSongsUseCase: GetSongsUseCase
-    )*/ //: ViewModel() {
+class PlaybackViewModel (
+    private val preferences: SharedPreferences
 
-    class AudioViewModel () : ViewModel(){
+) : ViewModel(){
     private val _uiState = MutableStateFlow(SongUiState())
     val uiState: StateFlow<SongUiState> = _uiState.asStateFlow()
 
@@ -42,9 +43,54 @@ import kotlinx.coroutines.flow.*
         }.launchIn(viewModelScope)
     }*/
 
-        override fun onCleared() {
-            super.onCleared()
-            Log.d("AFRC", "SharedViewModelTwo has removed!")
+
+
+
+
+
+
+
+/*    fun playAll(playId: String = Constants.PLAY_RANDOM) {
+        val parentId = lastParendId
+        val list = mediaItems.value
+        if (parentId == Constants.SONGS_ROOT && list != null) {
+            playMediaId(getItemFrmPlayId(playId, list)?.id)
+        } else {
+            playMediaAfterLoad = playId
+            mediaSessionConnection.unsubscribe(parentId, subscriptionCallback)
+            mediaSessionConnection.subscribe(Constants.SONGS_ROOT, subscriptionCallback)
         }
+    }*/
+
+/*    fun playAll(playId : String = Constants.PLAY_RANDOM){
+        // check is songs is want to play
+        val parentId = lastParentId
+        val list  =
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private val lastParentId: String
+    get() = preferences.getString(Constants.LAST_PARENT_ID, Constants.SONGS_ROOT)!!
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.play.maxler.utils.base
+package com.play.maxler.common.view.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

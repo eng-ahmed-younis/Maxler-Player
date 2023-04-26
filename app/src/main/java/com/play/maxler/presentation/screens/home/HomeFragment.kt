@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
@@ -15,8 +14,8 @@ import com.play.maxler.databinding.ActivityMainBinding
 import com.play.maxler.databinding.FragmentHomeBinding
 import com.play.maxler.presentation.screens.main.MainActivity
 import com.play.maxler.presentation.screens.main.MainViewModel
-import com.play.maxler.utils.Constants
-import com.play.maxler.utils.base.BaseFragment
+import com.play.maxler.common.data.Constants
+import com.play.maxler.common.view.base.BaseFragment
 import javax.inject.Inject
 
 
@@ -89,10 +88,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
           private fun navigateToPlayScreen(isNavigate: Boolean) {
-           if (isNavigate){
+       /*    if (isNavigate){
             viewModel.Navigation().navigateToPlayScreenComplete()
             findNavController().navigate(R.id.action_homeFragment_to_playFragment)
-        }
+        }*/
 
        /*  if(isNavigate){
             viewModel.Navigation().navigateToPlayScreenComplete()

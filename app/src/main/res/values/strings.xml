@@ -42,6 +42,8 @@
     <string name="about">About</string>
     <string name="setting">Setting</string>
     <string name="discover">Discover</string>
+    <string name="watch">Watch</string>
+    <string name="my_music">My music</string>
 
 
 </resources>

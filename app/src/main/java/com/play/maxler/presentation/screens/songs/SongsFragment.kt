@@ -6,26 +6,24 @@ import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.play.maxler.R
 import com.play.maxler.databinding.FragmentSongsBinding
-import com.play.maxler.utils.base.BaseFragment
+import com.play.maxler.common.view.base.BasePlayerFragment
 import kotlinx.coroutines.launch
 
 
+/*
 class SongsFragment : BaseFragment<FragmentSongsBinding>(FragmentSongsBinding::inflate) {
+*/
+class SongsFragment : BasePlayerFragment<FragmentSongsBinding>() {
 
- //   private val fragmentContainer = view?.findViewById<View>(R.id.play_nav_graph)
- //   val navController  = Navigation.findNavController(fragmentContainer!!)
 
     //private val viewModel  by navGraphViewModels<MediaViewModel>(navController.graph.id)
-   private val viewModel : AudioViewModel  by navGraphViewModels(R.id.play_graph)
-     //   defaultViewModelProviderFactory
-   // }
-  //  private val viewModel : MediaViewModel by viewModels()
+   private val viewModel : PlaybackViewModel  by navGraphViewModels(R.id.home_graph)
 
-   //private lateinit var viewModel : AudioViewModel
+   //private val viewModel : PlaybackViewModel by viewModels()
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

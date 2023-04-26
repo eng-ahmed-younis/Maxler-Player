@@ -2,15 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_graph"
-    app:startDestination="@id/recentFragment">
-
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_graph">
 <!--
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.play.maxler.presentation.screens.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         &lt;!&ndash;   <action
                android:id="@+id/action_homeFragment_to_playFragment"
                app:destination="@id/playFragment"
@@ -60,18 +60,55 @@
             app:popEnterAnim="@anim/soft_move_right"
             app:popExitAnim="@anim/move_right"
             />
+        &lt;!&ndash;   <action
+               android:id="@+id/action_homeFragment_to_play_nav_graph"
+               app:destination="@id/play_graph" />&ndash;&gt;
         <action
-            android:id="@+id/action_homeFragment_to_play_nav_graph"
-            app:destination="@id/play_graph" />
-        &lt;!&ndash;  <action
-              android:id="@+id/action_homeFragment_to_play_graph"
-              app:destination="@id/play_graph"
-              app:enterAnim="@anim/slide_up"
-              app:exitAnim="@anim/slide_down"
-              app:popExitAnim="@anim/slide_down"
-              />&ndash;&gt;
+            android:id="@+id/action_homeFragment_to_play_graph"
+            app:destination="@id/play_graph"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popExitAnim="@anim/slide_down"
+            />
     </fragment>
--->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/songsFragment"
+        android:name="com.play.maxler.presentation.screens.songs.SongsFragment"
+        android:label="SongsFragment"
+        tools:layout="@layout/fragment_songs">
+        <action
+            android:id="@+id/action_songsFragment_to_playFragment"
+            app:destination="@id/playFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.play.maxler.presentation.screens.play.PlayFragment"
+        android:label="PlayFragment"
+        tools:layout="@layout/fragment_play">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="myApp://myFragment_play" />
+    </fragment>
 
     <fragment
         android:id="@+id/albumFragment"
@@ -83,8 +120,6 @@
         android:name="com.play.maxler.presentation.artists.ArtistsFragment"
         android:label="fragment_artists"
         tools:layout="@layout/fragment_artists" />
-
-
     <fragment
         android:id="@+id/playListFragment"
         android:name="com.play.maxler.presentation.screens.playlist.PlayListFragment"
@@ -95,9 +130,6 @@
         android:name="com.play.maxler.presentation.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
-
-
-
     <fragment
         android:id="@+id/recentFragment"
         android:name="com.play.maxler.presentation.screens.recent.RecentFragment"
@@ -119,6 +151,14 @@
         android:name="com.play.maxler.presentation.screens.folder.FoldersFragment"
         android:label="fragment_folders"
         tools:layout="@layout/fragment_folders" />
+-->
+
+
+
+    <include app:graph="@navigation/home_graph"/>
+
+    <include app:graph="@navigation/watch_graph"/>
+    <include app:graph="@navigation/discover_graph"/>
 
 
 </navigation>

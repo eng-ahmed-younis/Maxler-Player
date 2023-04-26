@@ -3,16 +3,16 @@ package com.play.maxler.domain.repository
 import android.database.Cursor
 import com.play.maxler.domain.models.Song
 
-abstract class SongsRepository {
-    abstract suspend fun songs(): List<Song>
+ interface SongsRepository {
+    suspend fun songs(): List<Song>
 
-    abstract suspend fun songs(cursor: Cursor?): List<Song>
+    suspend fun songs(cursor: Cursor?): List<Song>
 
-    abstract suspend fun songs(query: String): List<Song>
+    suspend fun songs(query: String): List<Song>
 
     //fun songsByFilePath(filePath: String): List<Song>
 
-    abstract suspend fun song(cursor: Cursor?): Song
+    suspend fun song(cursor: Cursor?): Song
 
-    abstract suspend fun song(songId: Long): Song
+    suspend fun song(songId: Long): Song
 }

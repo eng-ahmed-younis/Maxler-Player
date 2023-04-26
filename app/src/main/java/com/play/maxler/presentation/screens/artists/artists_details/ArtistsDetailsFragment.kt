@@ -1,4 +1,4 @@
-package com.play.maxler.presentation.screens.artists_details
+package com.play.maxler.presentation.screens.artists.artists_details
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

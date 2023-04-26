@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.play.maxler.databinding.FragmentPlayListBinding
-import com.play.maxler.utils.base.BaseFragment
+import com.play.maxler.common.view.base.BaseFragment
 
 
 class PlayListFragment : BaseFragment<FragmentPlayListBinding>(FragmentPlayListBinding::inflate) {

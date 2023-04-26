@@ -2,6 +2,7 @@ package com.play.maxler.di.component
 
 import android.content.Context
 import com.play.maxler.di.module.AppModule
+import com.play.maxler.di.module.StorageModule
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -46,12 +47,13 @@ interface AppComponent {
 }*/
 
 @Singleton
-@Component(modules = [AppModule::class, AppSubComponents::class])
+@Component(modules = [AppModule::class , StorageModule::class , AppSubComponents::class])
 interface AppComponent {
 
     // Factory to create instances of MainComponent
     @Component.Factory
     interface Factory {
+        // tell dagger than create() parameter is one of dependencies -> (context)
         fun create(@BindsInstance context: Context): AppComponent
     }
 

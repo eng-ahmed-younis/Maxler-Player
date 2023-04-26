@@ -4,7 +4,7 @@ import com.play.maxler.databinding.ActivityMainBinding
 import com.play.maxler.di.MainScope
 import com.play.maxler.presentation.screens.home.HomeFragment
 import com.play.maxler.presentation.screens.main.MainActivity
-import com.play.maxler.presentation.watch.WatchFragment
+import com.play.maxler.presentation.screens.watch.WatchFragment
 import dagger.BindsInstance
 import dagger.Subcomponent
 

@@ -7,17 +7,30 @@ import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
 import androidx.core.database.getStringOrNull
-import com.play.maxler.data.local.preferences.PreferencesUtils
+import com.play.maxler.common.data.Constants
+import com.play.maxler.common.data.Constants.projection
+import com.play.maxler.data.local.preferences.SharedPreferencesStorage
+import com.play.maxler.data.local.preferences.Storage
 import com.play.maxler.domain.models.Song
 import com.play.maxler.domain.repository.SongsRepository
-import com.play.maxler.utils.Constants
-import com.play.maxler.utils.Constants.projection
+import javax.inject.Inject
 
-class SongsRepositoryImpl (private val context: Context) : SongsRepository(){
+/* storage thar provided by storage module dagger provide
+   SharedPreferencesStorage when ask for Stooge interface
+    */
+class SongsRepositoryImpl @Inject constructor(
+    private val storage: Storage,
+    private val context: Context
+) : SongsRepository{
 
-    private val sharedPreferences by lazy {
-        PreferencesUtils(context = context)
-    }
+/*
+    @Inject
+    lateinit var storage: Storage
+*/
+
+  /*  private val sharedPreferences by lazy {
+        SharedPreferencesStorage(context = context)
+    }*/
 
     /* return all songs of device without any query
     * -> return cursor without any query and use songs fun
@@ -76,7 +89,7 @@ class SongsRepositoryImpl (private val context: Context) : SongsRepository(){
     private fun makeSongsCursor(
         selection:String?,
         selectionArgs:Array<String>?,
-        sortOrder: String? = sharedPreferences.songsSortOrder
+        sortOrder: String? = storage?.songsSortOrder
     ):Cursor?{
 
         val selectionFinal = Constants.IS_MUSIC
@@ -100,7 +113,7 @@ class SongsRepositoryImpl (private val context: Context) : SongsRepository(){
         return try {
             //29
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                context.contentResolver.query(
+                context?.contentResolver?.query(
                     uri,
                     projection,
                     selectionFinal,

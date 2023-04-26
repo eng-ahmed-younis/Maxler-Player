@@ -78,8 +78,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
 
-        mainComponent = (applicationContext as BaseApplication).appComponent.mainComponent().create(mainBinding)
-        mainComponent.inject(this)
+        //dagger
+    /*    mainComponent = (applicationContext as BaseApplication).appComponent.mainComponent().create(mainBinding)
+        mainComponent.inject(this)*/
 
 
         //val component = DaggerAppComponent
@@ -182,15 +183,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
-        navController.saveState()
-    }
 
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        navController.restoreState(savedInstanceState)
-    }
 }
 

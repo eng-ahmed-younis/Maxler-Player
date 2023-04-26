@@ -18,7 +18,7 @@ import com.play.maxler.presentation.screens.main.MainActivity
 import com.play.maxler.presentation.screens.permission.PermissionActivity
 import com.play.maxler.utils.Constants.HAS_SEEN_ON_BOARDING
 import com.play.maxler.utils.Constants.boards
-import com.play.maxler.utils.Utils
+import com.play.maxler.common.utils.Utils
 import com.play.maxler.utils.hiddenStatusBar
 import com.play.maxler.utils.launchScreen
 
@@ -136,25 +136,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager.widget.ViewPager.LayoutParams
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.play.maxler.R
-import com.play.maxler.data.local.preferences.PreferencesUtils
+import com.play.maxler.data.local.preferences.SharedPreferencesStorage
 import com.play.maxler.databinding.ActivityOnBoardingBinding
 import com.play.maxler.presentation.screens.main.MainActivity
 import com.play.maxler.presentation.screens.permission.PermissionActivity
-import com.play.maxler.utils.Constants
-import com.play.maxler.utils.Constants.boards
-import com.play.maxler.utils.Utils
+import com.play.maxler.common.data.Constants
+import com.play.maxler.common.data.Constants.boards
+import com.play.maxler.common.utils.Utils
 import com.play.maxler.utils.launchScreen
 
 class OnBoardingActivity : AppCompatActivity(), OnBoardEvents {
 
     private lateinit var onBoardingBinding: ActivityOnBoardingBinding
-    private val sharedPref by lazy { PreferencesUtils(this).sharedPreferences }
+    private val sharedPref by lazy { SharedPreferencesStorage(this).sharedPreferences }
     private val adapter by lazy { OnBoardingAdapter() }
 
 

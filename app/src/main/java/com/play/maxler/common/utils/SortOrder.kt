@@ -1,4 +1,4 @@
-package com.play.maxler.utils
+package com.play.maxler.common.utils
 
 import android.provider.MediaStore
 

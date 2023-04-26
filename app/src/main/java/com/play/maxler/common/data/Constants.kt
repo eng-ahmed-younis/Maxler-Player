@@ -1,4 +1,4 @@
-package com.play.maxler.utils
+package com.play.maxler.common.data
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -18,6 +18,11 @@ object Constants {
 
     const val SONG_SORT_ORDER = "song_sort_order"
     const val HAS_SEEN_ON_BOARDING = "maxler.player.onBoarding.hasSeenOnBoarding"
+    const val SONGS_ROOT = "_SONGS__"
+    const val PLAY_RANDOM = "com.playback.PLAY_RANDOM"
+    const val LAST_PARENT_ID = "com.playback.LAST_PARENT_ID"
+
+
 
 
 
