@@ -6,10 +6,16 @@
     <data>
 
     </data>
+ <androidx.coordinatorlayout.widget.CoordinatorLayout
+     android:id="@+id/patent_view"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/root_home"
+        app:layout_scrollFlags="scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -28,7 +34,7 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/drawer_button"
+                    android:id="@+id/drawer_button_home"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_marginStart="10dp"
@@ -55,10 +61,10 @@
                     android:background="@drawable/search_corner"
                     android:clickable="true"
                     android:focusable="true"
-                    app:layout_constraintBottom_toBottomOf="@id/drawer_button"
+                    app:layout_constraintBottom_toBottomOf="@id/drawer_button_home"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/drawer_button"
-                    app:layout_constraintTop_toTopOf="@id/drawer_button"
+                    app:layout_constraintStart_toEndOf="@id/drawer_button_home"
+                    app:layout_constraintTop_toTopOf="@id/drawer_button_home"
                     tools:ignore="TouchTargetSizeCheck">
 
 
@@ -118,12 +124,14 @@
         <!-- HOME CONTEXT -->
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/top_home"
+            android:id="@+id/home_top_section"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:weightSum="9"
+            app:layout_scrollFlags="scroll"
+            android:fitsSystemWindows="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
@@ -271,10 +279,11 @@
             app:fontFamily="@font/poppins_semi_bold"
             android:textColor="@color/playing_items_color"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/top_home"
+            app:layout_constraintTop_toBottomOf="@+id/home_top_section"
             android:textSize="@dimen/text_size_large"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
+
             />
 
 
@@ -312,4 +321,6 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+ </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>

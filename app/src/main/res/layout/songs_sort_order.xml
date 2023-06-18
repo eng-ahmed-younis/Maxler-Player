@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_small"
+        android:background="@null"
+        android:backgroundTint="@android:color/transparent"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sort_songs_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/sort_order"
+            android:layout_marginTop="@dimen/margin_large"
+            style="@style/sort_songs_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_a_z"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_order_a_z"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_songs_title"
+            style="@style/sort_order_items_style"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_z_a"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_order_z_a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_order_a_z"
+            style="@style/sort_order_items_style"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_artist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_order_artist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_order_z_a"
+            style="@style/sort_order_items_style"
+            />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_album"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_order_album"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_order_artist"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_small"
+            style="@style/sort_order_items_style"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_order_year"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_order_album"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_small"
+            style="@style/sort_order_items_style"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_date_modified"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_order_date_modified"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_order_year"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_small"
+            style="@style/sort_order_items_style" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_date_added"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/sort_order_date_added"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_order_date_modified"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_small"
+            style="@style/sort_order_items_style"
+            />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_composer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_order_composer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_order_date_added"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_small"
+            style="@style/sort_order_items_style"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sort_order_duration_songs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_order_duration_songs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sort_order_composer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_small"
+            style="@style/sort_order_items_style"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

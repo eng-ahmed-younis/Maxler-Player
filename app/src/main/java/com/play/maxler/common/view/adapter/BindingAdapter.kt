@@ -1,68 +1,15 @@
-package com.roaa.ahmed_abu_elbukhari.ui.adapter
+package com.play.maxler.common.view.adapter
 
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.play.maxler.R
+import com.play.maxler.common.utils.ImageUtils
+import com.play.maxler.domain.models.Album
+import com.play.maxler.domain.models.Song
 import com.play.maxler.presentation.screens.onBoarding.Board
-import org.w3c.dom.Text
-
-/*
-@BindingAdapter("android:loadCategoryImage")
-fun setCategoryImage(view:ImageView,category: MealCategoryObject){
-    category.categoryImage.let {
-        Glide.with(view.context)
-            .load(it)
-            .apply(
-                RequestOptions()
-                    .placeholder(R.drawable.loading_animation)
-                    .error(R.drawable.ic_broken_image))
-            .into(view)
-    }
-}
-
-@BindingAdapter("android:category_name")
-fun setCategoryName(view: TextView,category: MealCategoryObject){
-    category.categoryName.let {
-        view.text = it
-    }
-}
-
-
-
-
-@BindingAdapter("android:meal_image")
-fun setMealImage(view : ImageView,lastMeal: MealObject){
-
-    lastMeal.mealImage.let {
-        Glide.with(view.context)
-            .load(it)
-            .apply(
-                RequestOptions()
-                .placeholder(R.drawable.loading_animation)
-                .error(R.drawable.ic_broken_image))
-            .into(view)
-    }
-
-}
-
-
-@BindingAdapter("android:meal_name")
-fun setMealName(view: TextView,category: MealObject){
-    category.mealName.let {
-        view.text = it
-    }
-}
-
-
-
-@BindingAdapter("android:meal_description")
-fun setMealDescription(view: TextView,categoryItem: CategoryItem){
-
-    categoryItem.category_description?.let {
-        view.text = it
-    }
-}*/
+import java.util.concurrent.TimeUnit
 
 
 @BindingAdapter("android:boardImage")
@@ -90,43 +37,36 @@ fun setOnBoardingTitle(view: TextView,board: Board){
 }
 
 
-/*@BindingAdapter("android:screen_title")
-fun  TextView.setScreenTitle(title:String){
-    this.context.applicationContext.a
-    this.context.theme == this.context.theme.resources.
-    this.text = title.toString()
-}*/
-
-/*
-
-@BindingAdapter("android:meal_name_ByCategory")
-fun setMealNameByCategory(view:TextView,mealCategoryObject: MealObject){
-    mealCategoryObject.mealName.let {
-        view.text = it
-    }
+/* songs */
+@BindingAdapter(value = ["song_duration"])
+fun TextView.setSongDuration(song: Song){
+    val hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(song.duration),
+        TimeUnit.MILLISECONDS.toMinutes(song.duration) % TimeUnit.HOURS.toMinutes(1),
+        TimeUnit.MILLISECONDS.toSeconds(song.duration) % TimeUnit.MINUTES.toSeconds(1))
+    this.text = hms
 }
 
-@BindingAdapter("android:meal_image_ByCategory")
-fun setMealImageByCategory(view:ImageView,mealCategoryObject: MealObject){
-    mealCategoryObject.mealImage.let {
-        Glide.with(view.context)
-            .load(it)
-            .apply(
-                RequestOptions()
-                    .placeholder(R.drawable.loading_animation)
-                    .error(R.drawable.ic_broken_image))
-            .into(view)
+@BindingAdapter("android:song_image")
+fun setAlbumImage(imageView: ImageView , song: Song){
+    song.albumId.let {
+        Glide.with(imageView.context)
+            .load(ImageUtils.getAlbumArtUri(albumId = song.albumId))
+            .placeholder(R.drawable.maxler_img)
+            .into(imageView)
     }
 }
 
 
-@BindingAdapter("android:collapsingTitle")
-fun setCollapsingTitle(view: CollapsingToolbarLayout,mealDetails: Details){
-    mealDetails.meal_name.let {
-        view.title = it
+
+/* Albums */
+@BindingAdapter("android:album_image")
+fun setAlbumImage(imageView: ImageView , album: Album){
+    album.id.let {
+        Glide.with(imageView.context)
+            .load(ImageUtils.getAlbumArtUri(albumId = album.id))
+            .placeholder(R.drawable.defalut_album)
+            .into(imageView)
     }
 }
-*/
-
 
 

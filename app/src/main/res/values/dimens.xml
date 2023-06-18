@@ -35,4 +35,5 @@
     <dimen name="song_image_small">45dp</dimen>
     <dimen name="write_playlist_thumb_width">135dp</dimen>
     <dimen name="granted_permission_evaluation">16dp</dimen>
+    <dimen name="text_size_x_x_small">10sp</dimen>
 </resources>

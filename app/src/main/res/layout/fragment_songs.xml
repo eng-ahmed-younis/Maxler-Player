@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="songsViewModel"
+            type="com.play.maxler.presentation.screens.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,62 +18,61 @@
             android:id="@+id/songs_top_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:backgroundTint="@android:color/transparent"
             android:background="@android:color/transparent"
-            >
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/play_songs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/margin_x_small"
+                android:layout_margin="@dimen/margin_medium"
                 android:background="@drawable/play_in_songs_background"
+                android:padding="@dimen/margin_x_small"
+                android:scaleType="fitXY"
                 android:src="@drawable/ic_play_medium"
                 android:tint="@color/white"
-                app:layout_constraintTop_toTopOf="parent"
-                android:scaleType="fitXY"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_margin="@dimen/margin_medium"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/shuffle_playback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_medium"
+                android:layout_marginStart="@dimen/margin_medium"
                 android:text="@string/shuffle_playback"
                 android:textColor="@color/playing_items_color"
+                android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
                 app:fontFamily="@font/poppins_semi_bold"
-                app:layout_constraintTop_toTopOf="@id/play_songs"
                 app:layout_constraintBottom_toBottomOf="@id/play_songs"
                 app:layout_constraintStart_toEndOf="@id/play_songs"
-                android:layout_marginStart="@dimen/margin_medium"
-                />
+                app:layout_constraintTop_toTopOf="@id/play_songs" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/playlist_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/playlist_add"
-                android:tint="@color/playing_items_color"
                 android:scaleType="centerCrop"
-                />
+                android:src="@drawable/ic_playlist_add_check"
+                android:tint="@color/playing_items_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/sort_songs"
+                android:id="@+id/songs_sort_order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{()-> songsViewModel.songsSortOrderClicked()}"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_sort"
                 android:tint="@color/playing_items_color"
@@ -86,34 +87,38 @@
             android:id="@+id/songRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:clipToPadding="false"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
-            android:paddingBottom="4dp"
+            android:paddingBottom="120dp"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-
             app:layout_constraintTop_toBottomOf="@id/songs_top_section"
             app:layout_constraintVertical_bias="0.0"
             tools:itemCount="40"
-            tools:listitem="@layout/item_song" />
+            tools:listitem="@layout/item_song"
+
+            />
 
 
-      <!--  <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            app:lottie_rawRes="@raw/looding_lottie"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/songs_top_section"
-            />-->
+        <!--        <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/loading_view"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:lottie_rawRes="@raw/lottie_loading"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/songs_top_section"
+                    />-->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

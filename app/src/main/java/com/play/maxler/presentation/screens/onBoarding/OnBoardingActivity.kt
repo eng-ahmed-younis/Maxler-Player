@@ -25,8 +25,8 @@ import com.play.maxler.utils.launchScreen
 class OnBoardingActivity : AppCompatActivity() ,OnPageChangeListener{
 
     private lateinit var onBoardingBinding: ActivityOnBoardingBinding
-    private val sharedPref by lazy {
-        PreferencesUtils(this).sharedPreferences
+    private val storage by lazy {
+        PreferencesUtils(this).storageerences
     }
 
 
@@ -90,7 +90,7 @@ class OnBoardingActivity : AppCompatActivity() ,OnPageChangeListener{
                  PermissionActivity()
              }
             launchNextActivity(nextActivity)
-         sharedPref.edit {
+         storage.edit {
              putBoolean(HAS_SEEN_ON_BOARDING, true)
          }
     }
@@ -136,30 +136,38 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager.widget.ViewPager.LayoutParams
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.play.maxler.R
-import com.play.maxler.data.local.preferences.SharedPreferencesStorage
 import com.play.maxler.databinding.ActivityOnBoardingBinding
 import com.play.maxler.presentation.screens.main.MainActivity
 import com.play.maxler.presentation.screens.permission.PermissionActivity
 import com.play.maxler.common.data.Constants
 import com.play.maxler.common.data.Constants.boards
 import com.play.maxler.common.utils.Utils
+import com.play.maxler.data.local.preferences.Storage
+import com.play.maxler.presentation.screens.main.MainViewModel
 import com.play.maxler.utils.launchScreen
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class OnBoardingActivity : AppCompatActivity(), OnBoardEvents {
 
     private lateinit var onBoardingBinding: ActivityOnBoardingBinding
-    private val sharedPref by lazy { SharedPreferencesStorage(this).sharedPreferences }
-    private val adapter by lazy { OnBoardingAdapter() }
+    @Inject lateinit var storage : Storage 
+    @Inject lateinit var adapter : OnBoardingAdapter
+    private val viewModel by viewModels<OnBoardingViewModel>()
+    @Inject lateinit var permissionScreen : PermissionActivity
+    @Inject lateinit var mainScreen : MainActivity
 
 
     override fun onRestart() {
         super.onRestart()
-        if (sharedPref.getBoolean(Constants.HAS_SEEN_ON_BOARDING, false))
+        if (storage.sharedPreferences.getBoolean(Constants.HAS_SEEN_ON_BOARDING, false))
             finish()
     }
 
@@ -177,9 +185,29 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardEvents {
                 setupCurrentIndicator(position)
             }
         })
-        nextOnBoardClicked()
+
+        onBoardingBinding.apply {
+            fabNext.setOnClickListener {  viewModel.fabNextClicked()  }
+            backBoard.setOnClickListener {  viewModel.backBoardClicked()  }
+            skipButton.setOnClickListener {  viewModel.skipButtonClicked()  }
+        }
+
+
+
+        viewModel.fabNext.observe(this){
+            if (it) nextOnBoardClicked()
+        }
+
+        viewModel.skipButton.observe(this){
+            if (it) skipBoardingClicked()
+        }
+
+        viewModel.backBoard.observe(this){
+            if (it) previousBoardClicked()
+        }
+     /*   nextOnBoardClicked()
         previousBoardClicked()
-        skipBoardingClicked()
+        skipBoardingClicked()*/
     }
 
 
@@ -216,30 +244,31 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardEvents {
     }
 
     override fun nextOnBoardClicked() {
-        onBoardingBinding.fabNext.setOnClickListener {
+        viewModel.fabNextClickedComplete()
             if (onBoardingBinding.viewPager.currentItem+1 < boards.size){
                 onBoardingBinding.viewPager.currentItem += 1
             }else{
                 moveToNextScreen()
             }
-        }
     }
 
     override fun previousBoardClicked() {
-        onBoardingBinding.backBoard.setOnClickListener {
+        viewModel.backBoardClickedComplete()
             if (onBoardingBinding.viewPager.currentItem == boards.indexOf(boards.first()))
                 finish()
             else
                 onBoardingBinding.viewPager.currentItem -= 1
-        }
+
     }
 
     override fun skipBoardingClicked() {
-        onBoardingBinding.skipButton.setOnClickListener { moveToNextScreen() }
+        viewModel.skipButtonClickedComplete()
+        moveToNextScreen()
     }
 
+
     private fun moveToNextScreen(){
-        sharedPref.edit().putBoolean(Constants.HAS_SEEN_ON_BOARDING,true).apply()
+        storage.sharedPreferences.edit().putBoolean(Constants.HAS_SEEN_ON_BOARDING , true).apply()
            // Intent().launchScreen(this, targetActivity = MainActivity())
         Intent().launchScreen(this, targetActivity = getNextScreen())
         finish()
@@ -247,13 +276,13 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardEvents {
 
     private fun getNextScreen() : AppCompatActivity {
       return  if (!Utils.isPermissionGranted(
-                permission = Constants.cameraPermission,
+                permission = Constants.permissions,
                 context = this
             )
         ) { // if false show PermissionActivity
-            PermissionActivity()
+          permissionScreen
         } else {
-            MainActivity() // if permission granted and on boarding seen before then show MainActivity
+            mainScreen // if permission granted and on boarding seen before then show MainActivity
         }
     }
 

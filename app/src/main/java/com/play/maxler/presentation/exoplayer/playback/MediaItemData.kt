@@ -1,4 +1,3 @@
-// Copyright (c) 2019 . Wilberforce Uwadiegwu. All Rights Reserved.
 
 package com.play.maxler.presentation.exoplayer.playback
 
@@ -8,7 +7,9 @@ import android.os.Parcelable
 import android.support.v4.media.MediaBrowserCompat.MediaItem
 import android.support.v4.media.MediaMetadataCompat
 import com.play.maxler.common.data.Model
-import kotlinx.android.parcel.Parcelize
+import com.play.maxler.presentation.exoplayer.duration
+import com.play.maxler.presentation.exoplayer.id
+import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
@@ -21,7 +22,7 @@ data class MediaItemData(
     val isBrowsable: Boolean,
     var isPlaying: Boolean,
     var isBuffering: Boolean,
-  //  var duration: Long = 0L
+    var duration: Long = 0L
 ) : Model(), Parcelable {
 
     val playingOrBuffering get() = isPlaying || isBuffering
@@ -35,10 +36,10 @@ data class MediaItemData(
         isBrowsable = item.isBrowsable,
         isPlaying = isPlaying,
         isBuffering = isBuffering,
-       // duration = item.description.duration
+        duration = item.description.duration
     )
 
-/*    constructor(item: MediaMetadataCompat, isPlaying: Boolean, isBuffering: Boolean) : this(
+    constructor(item: MediaMetadataCompat, isPlaying: Boolean, isBuffering: Boolean) : this(
         id = item.id!!,
         title = item.description.title!!.toString(),
         subtitle = item.description.subtitle!!.toString(),
@@ -47,8 +48,8 @@ data class MediaItemData(
         isBrowsable = false,
         isPlaying = isPlaying,
         isBuffering = isBuffering,
-     //   duration = item.duration
-    )*/
+        duration = item.duration
+    )
 
     // We don't want to use all the feeds to check for equality because some of them might change.
     override fun equals(other: Any?): Boolean {
@@ -71,7 +72,7 @@ data class MediaItemData(
         return id == other.id
                 && title == other.title
                 && subtitle == other.subtitle
-               // && duration == other.duration
+                && duration == other.duration
                 && isPlaying == other.isPlaying
                 && albumArtUri == other.albumArtUri
                 && description == other.description

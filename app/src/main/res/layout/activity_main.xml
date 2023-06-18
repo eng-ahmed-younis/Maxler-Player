@@ -5,36 +5,164 @@
 
     <data>
 
+        <variable
+            name="mainViewModel"
+            type="com.play.maxler.presentation.screens.main.MainViewModel" />
     </data>
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/app_bar_layout_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="start"
         tools:context=".presentation.screens.main.MainActivity">
 
 
-        <include
-            layout="@layout/app_bar_main"
+        <include layout="@layout/content_main" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/recent_music_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/window_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:transitionName="last_playing_transition"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_small"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <!-- second section to launch player screen -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/recent_music_played"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/recent_music_items"
+                        android:layout_marginStart="@dimen/margin_x_small">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/recent_song_image"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            app:srcCompat="@drawable/maxler_img"
+                            android:backgroundTint="@android:color/transparent"
+                            android:background="@android:color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:scaleType="centerInside"
+                            android:layout_margin="@dimen/margin_small" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/recent_song_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="How to Make a Clean Architecture Cryptocurrency App (MVVM, Use Cases, Compose) - Android Studio"
+                            android:textSize="@dimen/text_size_small"
+                            android:maxLines="1"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/playing_items_color_extra"
+                            app:layout_constraintTop_toTopOf="@id/recent_song_image"
+                            app:layout_constraintBottom_toBottomOf="@id/recent_song_image"
+                            app:layout_constraintEnd_toStartOf="@id/recent_song_image"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:ellipsize="marquee"
+                            android:fadingEdge="horizontal"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            app:fontFamily="@font/poppins_regular"
+                            android:singleLine="true" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--
+                                     second section to skip next/prev/play
+                    -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/recent_music_items"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/recent_music_played">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/skip_songs_previous"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            app:srcCompat="@drawable/ic_skip_previous"
+                            app:tint="@color/playing_items_color_extra"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_margin="@dimen/margin_small" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/play_recent_song"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            app:srcCompat="@drawable/ic_play_small"
+                            android:background="@drawable/play_recent_songs"
+                            app:tint="@color/play_tint"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/skip_songs_previous"
+                            android:layout_margin="@dimen/margin_small" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/skip_songs_next"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            app:srcCompat="@drawable/ic_skip_next"
+                            android:backgroundTint="@android:color/transparent"
+                            app:tint="@color/playing_items_color_extra"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/play_recent_song"
+                            android:layout_margin="@dimen/margin_small" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+<!--
+
+            <Button
+                android:id="@+id/show"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+-->
 
 
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navView"
-            app:elevation="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/window_background"
-            android:layout_gravity="start"
-            android:elevation="8dp"
-            android:fitsSystemWindows="true"
-            app:menu="@menu/drawer_menu"
-            app:itemTextAppearance="@font/poppins_regular"
-            app:itemIconPadding="@dimen/padding_xx_large"
-            />
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:padding="4dp"
+                app:elevation="0dp"
+                app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+                app:itemTextAppearanceActive="@style/Widget.Design.BottomNavigationView"
+                app:menu="@menu/bottom_navigation_view" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

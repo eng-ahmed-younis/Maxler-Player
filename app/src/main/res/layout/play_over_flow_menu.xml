@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_small"
+        android:background="@null"
+        android:backgroundTint="@android:color/transparent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_go_to_drive_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/drive_mode"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_go_to_album"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_go_to_album"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_go_to_drive_mode"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_go_to_artist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_go_to_artist"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_go_to_album"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_add_to_playlist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_add_to_playlist"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_go_to_artist"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_save_playing_queue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_save_playing_queue"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_add_to_playlist"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_set_as_ringtone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_set_as_ringtone"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_save_playing_queue"
+            android:layout_margin="@dimen/margin_small" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_clear_playing_queue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_clear_playing_queue"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_set_as_ringtone"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_details"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_clear_playing_queue"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_sleep_timer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_sleep_timer"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_details"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_equalizer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/equalizer"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_sleep_timer"
+            android:layout_margin="@dimen/margin_small" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_delete_from_device"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/action_delete_from_device"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:gravity="start|center"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/playing_items_color_songs_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_equalizer"
+            android:layout_margin="@dimen/margin_small" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

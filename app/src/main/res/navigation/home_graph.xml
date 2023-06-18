@@ -63,16 +63,39 @@
      <!--   <action
             android:id="@+id/action_homeFragment_to_play_nav_graph"
             app:destination="@id/play_graph" />-->
-          <action
-              android:id="@+id/action_homeFragment_to_play_graph"
-              app:destination="@id/play_graph"
-              app:enterAnim="@anim/slide_up"
-              app:exitAnim="@anim/slide_down"
-              app:popExitAnim="@anim/slide_down"
-              />
+
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:enterAnim="@anim/move_left"
+            app:exitAnim="@anim/soft_move_left"
+            app:popEnterAnim="@anim/soft_move_right"
+            app:popExitAnim="@anim/move_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_playFragment"
+            app:destination="@id/playFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popExitAnim="@anim/slide_down"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_albumDetailsFragment"
+            app:destination="@id/albumDetailsFragment"
+            app:enterAnim="@anim/move_left"
+            app:exitAnim="@anim/soft_move_left"
+            app:popEnterAnim="@anim/soft_move_right"
+            app:popExitAnim="@anim/move_right"
+            />
+
+        <action
+            android:id="@+id/action_homeFragment_to_songsMenuBottomSheetDialogFragment"
+            app:destination="@id/songsMenuBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_songSortOrderBottomSheetDialogFragment"
+            app:destination="@id/songSortOrderBottomSheetDialogFragment" />
+
     </fragment>
-
-
 
 
 
@@ -95,9 +118,7 @@
         android:name="com.play.maxler.presentation.screens.songs.SongsFragment"
         android:label="SongsFragment"
         tools:layout="@layout/fragment_songs">
-        <action
-            android:id="@+id/action_songsFragment_to_playFragment"
-            app:destination="@id/playFragment" />
+
     </fragment>
 
     <fragment
@@ -107,14 +128,18 @@
         tools:layout="@layout/fragment_play">
         <deepLink
             android:id="@+id/deepLink"
-            app:uri="myApp://myFragment_play" />
+            app:uri="myApp://myFragment_play"/>
+        <action
+            android:id="@+id/action_playFragment_to_playOverFlowMenuBottomSheet"
+            app:destination="@id/playOverFlowMenuBottomSheet" />
     </fragment>
 
     <fragment
         android:id="@+id/albumFragment"
-        android:name="com.play.maxler.presentation.album.AlbumFragment"
+        android:name="com.play.maxler.presentation.screens.album.AlbumFragment"
         android:label="fragment_album"
-        tools:layout="@layout/fragment_album" />
+        tools:layout="@layout/fragment_album" >
+    </fragment>
     <fragment
         android:id="@+id/artistsFragment"
         android:name="com.play.maxler.presentation.artists.ArtistsFragment"
@@ -127,7 +152,7 @@
         tools:layout="@layout/fragment_play_list" />
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.play.maxler.presentation.setting.SettingFragment"
+        android:name="com.play.maxler.presentation.screens.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
     <fragment
@@ -151,6 +176,51 @@
         android:name="com.play.maxler.presentation.screens.folder.FoldersFragment"
         android:label="fragment_folders"
         tools:layout="@layout/fragment_folders" />
+    <fragment
+        android:id="@+id/artistsDetailsFragment"
+        android:name="com.play.maxler.presentation.screens.artists.artists_details.ArtistsDetailsFragment"
+        android:label="fragment_artists_details"
+        tools:layout="@layout/fragment_artists_details" />
+    <fragment
+        android:id="@+id/folderDetailsFragment"
+        android:name="com.play.maxler.presentation.screens.folder.folder_details.FolderDetailsFragment"
+        android:label="fragment_folder_details"
+        tools:layout="@layout/fragment_folder_details" />
+    <fragment
+        android:id="@+id/albumDetailsFragment"
+        android:name="com.play.maxler.presentation.screens.album.album_details.AlbumDetailsFragment"
+        android:label="fragment_album_details"
+        tools:layout="@layout/fragment_album_details" >
+        <argument
+            android:name="albumId"
+            app:argType="long" />
+    </fragment>
+
+
+    <dialog
+        android:id="@+id/songsMenuBottomSheetDialogFragment"
+        android:name="com.play.maxler.presentation.screens.songs.SongsMenuItemBottomSheet"
+        android:label="fragment_songs_menu_bottom_sheet_dialog"
+        tools:layout="@layout/songs_menu_item" >
+        <argument
+            android:name="songTitle"
+            app:argType="string" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/songSortOrderBottomSheetDialogFragment"
+        android:name="com.play.maxler.presentation.screens.songs.SongSortOrderBottomSheet"
+        android:label="fragment_songs_sort_order_bottom_sheet_dialog"
+        tools:layout="@layout/songs_sort_order" >
+    </dialog>
+
+
+    <dialog
+        android:id="@+id/playOverFlowMenuBottomSheet"
+        android:name="com.play.maxler.presentation.screens.play.PlayOverFlowMenuBottomSheet"
+        android:label="fragment_over_flow_menu_bottom_sheet_dialog"
+        tools:layout="@layout/play_over_flow_menu" >
+    </dialog>
 
 
 </navigation>

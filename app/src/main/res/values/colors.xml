@@ -24,6 +24,8 @@
     <color name="player_button_background">#781988</color>
     <color name="playing_items_color">#000</color>
     <color name="playing_items_color_extra">#5E5D5D</color>
+    <color name="playing_items_color_songs_title">#484848</color>
+
     <color name="play_tint">@color/white</color>
     <color name="black_white_color">@color/black</color>
     <color name="shuffle_playback_color">#a787bf</color>

@@ -1,77 +1,59 @@
 package com.play.maxler.presentation.screens.play
 
+import android.drm.DrmStore.Playback.RESUME
 import android.os.Bundle
-import android.view.View
+import android.util.Log
+import android.view.*
 import android.widget.Toast
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
+import androidx.fragment.app.Fragment
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navGraphViewModels
 import com.play.maxler.R
-import com.play.maxler.databinding.FragmentPlayBinding
-import com.play.maxler.presentation.screens.songs.PlaybackViewModel
 import com.play.maxler.common.view.base.BaseFragment
+import com.play.maxler.databinding.FragmentPlayBinding
+import com.play.maxler.presentation.screens.home.HomeFragmentDirections
+import com.play.maxler.presentation.screens.main.MainViewModel
 import com.play.maxler.utils.bindPlayMenu
 
 
 class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::inflate) {
 
-    private val viewmodel : PlaybackViewModel by navGraphViewModels(R.id.play_graph)
+    private val viewModel : MainViewModel by hiltNavGraphViewModels(R.id.home_graph)
 
- /*   override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        requireActivity().bindPlayMenu(
-            menuHost = requireActivity(),
-            menuRes = R.menu.play_screen_menu,
-            lifecycleOwner = viewLifecycleOwner)
-        {
-            when(it.itemId){
-                R.id.playPack_speed->{
-                    Toast.makeText(context,"playSpeed",Toast.LENGTH_SHORT).show()
-                }
-                R.id.drive_mode->{
-                    Toast.makeText(context,"Drive Mode",Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-        return super.onCreateView(inflater, container, savedInstanceState)
 
-    }*/
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.playingMenu?.setOnClickListener {
-            //val menuHost = requireActivity()
-            requireActivity().bindPlayMenu(
-                menuHost = requireActivity(),
-                menuRes = R.menu.play_screen_menu,
-                lifecycleOwner = viewLifecycleOwner)
-            {
-                when(it.itemId){
-                    R.id.playPack_speed->{
-                        Toast.makeText(context,"playSpeed",Toast.LENGTH_SHORT).show()
-                    }
-                    R.id.drive_mode->{
-                        Toast.makeText(context,"Drive Mode",Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-        }
-
-
-        binding?.navigateUp?.setOnClickListener {
-            //findNavController().navigateUp()
-            val navController = this.findNavController()
-            navController.navigateUp()
-           // navController.setGraph(R.navigation.nav_graph)
-           // navController.navigate(R.id.action_global_homeFragment)
-        }
-
-
-
+     super.onViewCreated(view, savedInstanceState)
+        setupViews()
+        observeViewData()
     }
 
+
+
+    private fun observeViewData(){
+        viewModel.playOverFlowMenu.observe(viewLifecycleOwner){
+            if (it){
+                viewModel.playOverFlowMenuClickedComplete()
+                findNavController().navigate(R.id.action_playFragment_to_playOverFlowMenuBottomSheet)
+            }
+        }
+    }
+
+
+
+    private fun setupViews(){
+        binding?.viewModel = viewModel
+        binding?.navigateUp?.setOnClickListener {
+            val navController = this.findNavController()
+            navController.navigateUp()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 
 
 

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.view.*
+import android.view.animation.TranslateAnimation
 import android.widget.Toast
 import androidx.annotation.MenuRes
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleService
 import androidx.navigation.NavController
 import com.play.maxler.R
+import okio.ByteString.Companion.encode
+import java.time.Duration
 
 fun Intent.launchScreen(context: Context, targetActivity:Activity){
     context.startActivity(
@@ -40,11 +43,11 @@ fun FragmentActivity.bindPlayMenu(
     menuHost: MenuHost,
     @MenuRes menuRes: Int,
     lifecycleOwner: LifecycleOwner,
-    onMenuItemSelected: (MenuItem)->Unit
+    onMenuItemSelected: (MenuItem) -> Unit
 ):MenuProvider{
 
-    val menuProvider = object :MenuProvider{
-        override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater)  = menuInflater.inflate(menuRes,menu)
+    val menuProvider = object : MenuProvider {
+        override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater)  = menuInflater.inflate(menuRes , menu)
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
             onMenuItemSelected(menuItem)
             return true
@@ -54,6 +57,23 @@ fun FragmentActivity.bindPlayMenu(
     return menuProvider
 }
 
+
+
+fun View.slideTopSectionUp(duration: Int = 500){
+    visibility = View.VISIBLE
+    val animate = TranslateAnimation(0f,0f,this.height.toFloat(),0f)
+    animate.duration = duration.toLong()
+    animate.fillAfter = true
+    this.startAnimation(animate)
+}
+
+fun View.slideTopSectionDown(duration: Int = 500){
+    visibility = View.VISIBLE
+    val animate = TranslateAnimation(0f,0f,0f,this.height.toFloat(),)
+    animate.duration = duration.toLong()
+    animate.fillAfter = true
+    this.startAnimation(animate)
+}
 
 /*fun Fragment.navigateToScreen(isNavigate:Boolean,navController: NavController,screenId:Int){
     if (isNavigate){
@@ -78,6 +98,7 @@ fun FragmentActivity.bindPlayMenu(
 fun Int.toText(context: Context):String{
     return context.getString(this)
 }
+
 
 
 

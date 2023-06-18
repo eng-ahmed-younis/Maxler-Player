@@ -4,7 +4,10 @@ import com.play.maxler.data.local.preferences.SharedPreferencesStorage
 import com.play.maxler.data.local.preferences.Storage
 import dagger.Binds
 import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
+@InstallIn(SingletonComponent::class)
 @Module  // Because of @Binds, StorageModule needs to be an abstract class
 abstract class StorageModule {
 
@@ -15,5 +18,4 @@ abstract class StorageModule {
 }
 // StorageModule is abstract now because the provideStorage is abstract.
 //We've told Dagger that when a Storage object is requested it should create an instance of SharedPreferencesStorage,
-
 // each time need SharedPreferencesStorage inject constructor of dependent of storage interface

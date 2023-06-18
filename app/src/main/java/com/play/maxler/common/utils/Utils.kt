@@ -4,6 +4,7 @@ package com.play.maxler.common.utils
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -37,14 +38,18 @@ object Utils {
         }
     }
 
-    fun isPermissionGranted( permission: String, context: Context?): Boolean {
+    fun isPermissionGranted( permission : Array<String>, context: Context?): Boolean {
         val mContext = WeakReference(context).get()
-        return mContext?.let {
-            ContextCompat.checkSelfPermission(it, permission)
+        return  mContext?.let {
+            ContextCompat.checkSelfPermission(it, permission[0])
+        } == PackageManager.PERMISSION_GRANTED
+                &&
+                mContext?.let {
+            ContextCompat.checkSelfPermission(it, permission[0])
         } == PackageManager.PERMISSION_GRANTED
     }
 
-   // val artworkUri = Uri.parse("content://media/external/audio/albumart")
+    val artworkUri: Uri = Uri.parse("content://media/external/audio/albumart")
 
 
 }

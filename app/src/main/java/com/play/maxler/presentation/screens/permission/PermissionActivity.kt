@@ -1,12 +1,15 @@
 package com.play.maxler.presentation.screens.permission
 
+import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.play.maxler.common.data.Constants
 import com.play.maxler.databinding.ActivityPermissionBinding
@@ -19,6 +22,8 @@ class PermissionActivity : AppCompatActivity() {
     private lateinit var permissionBinding: ActivityPermissionBinding
     private val  REQUEST_ID_CODE: Int = 101
 
+
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         permissionBinding = ActivityPermissionBinding.inflate(layoutInflater)
@@ -35,17 +40,19 @@ class PermissionActivity : AppCompatActivity() {
             launchToMainActivity()
     }*/
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onRestart() {
         super.onRestart()
-        if (Utils.isPermissionGranted(Constants.cameraPermission,this))
+        if (Utils.isPermissionGranted(permission = Constants.permissions,this))
             launchToMainActivity()
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     private fun grantPermission(){
         permissionBinding.btnGrant.setOnClickListener {
             requestPermissions(
-                arrayOf(Constants.cameraPermission),
+                Constants.permissions,
                 REQUEST_ID_CODE
             )
         }
@@ -73,7 +80,7 @@ class PermissionActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("Permission Denied")
             .setMessage("Permission to access internet is permanently denied. you need to go to setting to allow the permission.")
-            .setNegativeButton("Cancel"){dialog: DialogInterface?, which: Int ->
+            .setNegativeButton("Cancel"){ dialog: DialogInterface?, which: Int ->
                 /**  when user click cancel on dialog in permission activity
                  * and come back to prev activity on boarding if destroyed
                  *  then finish take in back to out of app

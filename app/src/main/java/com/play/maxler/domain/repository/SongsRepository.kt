@@ -15,4 +15,6 @@ import com.play.maxler.domain.models.Song
     suspend fun song(cursor: Cursor?): Song
 
     suspend fun song(songId: Long): Song
+
+    fun makeSongsCursor(selection:String?,selectionArgs:Array<String>?,sortOrder: String?  = "") : Cursor?
 }

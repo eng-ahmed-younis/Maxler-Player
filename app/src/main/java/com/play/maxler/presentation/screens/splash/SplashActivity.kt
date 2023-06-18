@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
     private fun getNextScreen() : AppCompatActivity {
         return  if (!preferences.getBoolean(HAS_SEEN_ON_BOARDING, false))  { // if false show OnBoardingActivity
             OnBoardingActivity()
-        } else if (!Utils.isPermissionGranted(Constants.cameraPermission,this)) { // if false show PermissionActivity
+        } else if (!Utils.isPermissionGranted(Constants.permissions,this)) { // if false show PermissionActivity
             PermissionActivity()
         } else { MainActivity() } // if permission granted and on boarding seen before then show MainActivity
     }

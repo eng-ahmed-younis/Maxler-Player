@@ -23,6 +23,7 @@
     <color name="player_button_background">#C71A55</color>
     <color name="playing_items_color">#D8D0D0</color>
     <color name="playing_items_color_extra">#949292</color>
+    <color name="playing_items_color_songs_title">#B8B5B5</color>
     <color name="music_ic_color">#434242</color>
     <color name="music_ic_background_color">#141313</color>
     <color name="song_color">#7F7F7F</color>

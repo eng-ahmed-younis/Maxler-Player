@@ -34,9 +34,11 @@ data class Album(
     val year: Int
         get() = safeGetFirstSong().year!!.toInt()
 
- /*   val dateModified: Long
+/*
+   val dateModified: Long
         get() = safeGetFirstSong().dateModified
 */
+
     val songCount: Int
         get() = songs.size
 
