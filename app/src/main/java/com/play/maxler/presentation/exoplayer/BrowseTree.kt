@@ -1,14 +1,18 @@
+// Copyright (c) 2019 . Wilberforce Uwadiegwu. All Rights Reserved.
+// // A little modification was made from the original file: https://raw.githubusercontent.com/googlesamples/android-UniversalMusicPlayer/master/common/src/main/java/com/example/android/uamp/media/library/BrowseTree.kt
+
 package com.play.maxler.presentation.exoplayer
 
 import android.content.Context
 import android.support.v4.media.MediaBrowserCompat.MediaItem
 import android.support.v4.media.MediaMetadataCompat
-import com.play.maxler.R
-import com.play.maxler.common.data.Constants
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
+import com.jadebyte.jadeplayer.R
+import com.jadebyte.jadeplayer.common.urlEncoded
+import com.jadebyte.jadeplayer.main.common.data.Constants
+
 
 /**
+ * Created by Wilberforce on 2019-08-19 at 22:08.
  *
  * Represents a tree of media that's used by [PlaybackService.onLoadChildren].
  *
@@ -30,10 +34,7 @@ import javax.inject.Inject
  * item list "Album_A", and, finally, `browseTree["Album_A"]` would return "Song_1" and "Song_2". Since those are leaf
  * nodes, requesting `browseTree["Song_1"]` would return null (there aren't any children of it).
  */
-class BrowseTree @Inject constructor(
-    @ApplicationContext val context: Context,
-    private val musicSource: MediaStoreSource
-    ){
+class BrowseTree(context: Context, musicSource: MusicSource) {
     private val mediaIdToChildren = mutableMapOf<String, MutableList<MediaMetadataCompat>>()
 
     operator fun get(parentId: String) = mediaIdToChildren[parentId]
@@ -47,13 +48,11 @@ class BrowseTree @Inject constructor(
     /**
      * In this example, there's a single root note (identified by the constant [Constants.BROWSABLE_ROOT].
      * The root's children are each album included in the [MusicSource],
-     * and the children of each album are songs on that album. See [buildAlbum] for details
+     * and the childrenn of each album are songs on that album. See [buildAlbum] for details
      * TODO: Expand to allow more browsing types.
      */
     init {
-        // BROWSABLE_ROOT = /
         val rootList = mediaIdToChildren[Constants.BROWSABLE_ROOT] ?: mutableListOf()
-
         val songsMetadata = MediaMetadataCompat.Builder().apply {
             id = Constants.SONGS_ROOT
             title = context.getString(R.string.songs)
@@ -80,12 +79,12 @@ class BrowseTree @Inject constructor(
         rootList += artistsMetadata
         mediaIdToChildren[Constants.BROWSABLE_ROOT] = rootList
         musicSource.forEach {
-            val albumMediaId = it.albumId.toString()
+            val albumMediaId = it.albumId.urlEncode
             val albumChildren = mediaIdToChildren[albumMediaId] ?: buildAlbumRoot(it)
             albumChildren += it
 
 
-            val artistMediaId = it.artist
+            val artistMediaId = it.artist.urlEncoded
             val artistChildren = mediaIdToChildren[artistMediaId] ?: buildArtistRoot(it)
             artistChildren += it
 
@@ -103,7 +102,7 @@ class BrowseTree @Inject constructor(
      */
     private fun buildAlbumRoot(metadata: MediaMetadataCompat): MutableList<MediaMetadataCompat> {
         val albumMetadata = MediaMetadataCompat.Builder().apply {
-            id = metadata.albumId.toString()
+            id = metadata.albumId.urlEncoded
             title = metadata.album
             artist = metadata.artist
             albumArt = metadata.albumArt
@@ -129,7 +128,7 @@ class BrowseTree @Inject constructor(
      */
     private fun buildArtistRoot(metadata: MediaMetadataCompat): MutableList<MediaMetadataCompat> {
         val artistMetadata = MediaMetadataCompat.Builder().apply {
-            id = metadata.artist!!
+            id = metadata.artist.urlEncoded
             title = metadata.artist
             albumArt = metadata.albumArt
             //            albumArtUri = metadata.albumArtUri.toString()
